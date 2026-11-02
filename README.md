@@ -30,6 +30,7 @@ Cycle the level with **`ctrl+shift+o`**, or use the command:
 /quiet-tools none         no call content
 /quiet-tools collapsed    native rendering
 /quiet-tools full         native, open
+/quiet-tools status       show the current level
 ```
 
 The level is stored in `~/.pi/agent/quiet-tools.json` (or under
@@ -74,7 +75,8 @@ Remove it with `pi remove` using the same source you installed.
 `ctrl+o` is good at opening one result. Quiet Tools is for the whole transcript:
 it keeps a stable, scannable level across every tool call and repaints existing
 rows when you switch. The implementation reads the level at paint time, so the
-change is immediate rather than applying only to the next call.
+change is immediate rather than applying only to the next call. It also
+respects Pi's `outputPad` setting instead of assuming one space.
 
 The renderer delegates to each tool's own `renderCall`/`renderResult` for the
 `collapsed` and `full` levels. Built-in tools, MCP tools, and other extensions
@@ -110,10 +112,11 @@ npm test
 The repository is intentionally small:
 
 ```text
-src/core.ts    modes, labels, error text
+src/core.ts    modes, labels, command parsing, error text
 src/state.ts   local level persistence
-src/index.ts   Pi renderer and commands
-test/          unit tests
+src/render.ts  stateful tool-row renderer
+src/index.ts   Pi wiring and commands
+test/          unit and renderer tests
 ```
 
 ## License

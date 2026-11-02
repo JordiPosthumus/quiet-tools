@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 — 2026-11-01
+
+- Honor Pi's `outputPad` setting for tool rows.
+- Add `/quiet-tools status`; unknown arguments no longer cycle the level.
+- Add renderer-level tests for levels, errors, delegation, clipping, padding,
+  and cache invalidation.
+
 ## 0.1.0 — 2026-11-01
 
 Initial public shape of the extension formerly developed as

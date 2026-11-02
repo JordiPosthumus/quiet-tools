@@ -8,6 +8,7 @@ import {
 	firstLine,
 	isQuietMode,
 	nextMode,
+	parseCommand,
 	parseExemptTools,
 	parseMode,
 	textOf,
@@ -28,6 +29,14 @@ test("mode parsing is trimmed and case-insensitive", () => {
 	assert.equal(parseMode(undefined), undefined);
 	assert.equal(isQuietMode("collapsed"), true);
 	assert.equal(isQuietMode("expanded"), false);
+});
+
+test("command arguments resolve without changing state", () => {
+	assert.deepEqual(parseCommand(""), { type: "cycle" });
+	assert.deepEqual(parseCommand("  "), { type: "cycle" });
+	assert.deepEqual(parseCommand("status"), { type: "status" });
+	assert.deepEqual(parseCommand("FULL"), { type: "set", mode: "full" });
+	assert.deepEqual(parseCommand("nonsense"), { type: "unknown", value: "nonsense" });
 });
 
 test("exempt tools default to subagent but can be cleared", () => {

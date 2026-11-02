@@ -29,6 +29,21 @@ export function nextMode(current: unknown): QuietMode {
 	return MODES[(MODES.indexOf(mode) + 1) % MODES.length];
 }
 
+export type CommandAction =
+	| { type: "cycle" }
+	| { type: "status" }
+	| { type: "set"; mode: QuietMode }
+	| { type: "unknown"; value: string };
+
+/** Resolve a `/quiet-tools` argument without touching state. */
+export function parseCommand(value: unknown): CommandAction {
+	const requested = typeof value === "string" ? value.trim().toLowerCase() : "";
+	if (!requested) return { type: "cycle" };
+	if (requested === "status") return { type: "status" };
+	const mode = parseMode(requested);
+	return mode ? { type: "set", mode } : { type: "unknown", value: requested };
+}
+
 /**
  * Parse a comma-separated exempt-tool list. An absent value keeps the
  * built-in exemption (`subagent`); an explicitly empty value disables it.
