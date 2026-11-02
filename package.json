@@ -1,0 +1,54 @@
+{
+  "name": "pi-quiet-tools",
+  "version": "0.1.0",
+  "description": "Quiet, scannable tool rows for Pi.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Jordi Posthumus",
+    "url": "https://github.com/JordiPosthumus"
+  },
+  "homepage": "https://github.com/JordiPosthumus/quiet-tools#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordiPosthumus/quiet-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JordiPosthumus/quiet-tools/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "pi",
+    "tui",
+    "quiet",
+    "tool-output"
+  ],
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ],
+    "image": "./assets/hero.png"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.ts",
+    "check": "npm test"
+  },
+  "engines": {
+    "node": ">=22.22.2"
+  },
+  "files": [
+    "src",
+    "assets/hero.png",
+    "assets/icon.png",
+    "assets/icon.svg",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ]
+}

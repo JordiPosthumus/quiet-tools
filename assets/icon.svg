@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Quiet Tools">
+  <rect width="512" height="512" rx="112" fill="#171a18"/>
+  <rect x="96" y="128" width="320" height="18" rx="9" fill="#3c4640" opacity="0.55"/>
+  <rect x="96" y="174" width="264" height="18" rx="9" fill="#3c4640" opacity="0.42"/>
+  <rect x="96" y="220" width="208" height="18" rx="9" fill="#3c4640" opacity="0.30"/>
+  <rect x="96" y="266" width="152" height="18" rx="9" fill="#3c4640" opacity="0.20"/>
+  <rect x="96" y="336" width="320" height="24" rx="12" fill="#8ee6a8"/>
+  <circle cx="396" cy="348" r="12" fill="#e6b86a"/>
+</svg>
